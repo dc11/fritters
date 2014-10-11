@@ -15,10 +15,10 @@ if (process.env.OPENSHIFT_MONGODB_DB_PASSWORD) {
   connection_string = process.env.OPENSHIFT_MONGODB_DB_USERNAME + ':' +
         process.env.OPENSHIFT_MONGODB_DB_PASSWORD + '@' +
         process.env.OPENSHIFT_MONGODB_DB_HOST + ':' +
-        process.env.OPENSHIFT_MONGODB_DB_PORT + '/mymongo';
+        process.env.OPENSHIFT_MONGODB_DB_PORT + '/fritter';
 }
 
-var db = mongoose.connect(connection_string);
+var db = mongoose.connect('mongodb://' + connection_string);
 
 // db.on('error', console.error);
 // db.once('open', function() {
