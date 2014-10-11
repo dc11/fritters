@@ -1,0 +1,137 @@
+html, body {
+	height: 100%;
+	width: 100%;
+}
+
+#tweetSomething{
+	margin: 0 auto;
+	width: 30%;
+	padding: 1em;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	background-color: #FFFFFF
+
+}
+
+#tweets {
+	width: 60%;
+	margin: 0 auto;
+	padding: 1em;
+	margin-bottom: 2em;
+	margin-top: 2em;
+}
+
+.tweet {
+	margin: 0 auto;
+	width: 50%;
+	border: solid 1px;
+	border-radius: 5px;
+	border-color: #ccc;
+	padding: 1em;
+	margin-top: 1em;
+	margin-bottom: 1em;
+	word-wrap: break-word;
+	background-color: white;
+	overflow: hidden;
+}
+
+.editForm {
+	display: none;
+	padding-top: .7em;
+}
+
+.editButton {
+	float: right;
+}
+
+h1 {
+	padding-left: 2em;
+}
+
+.content {
+	padding-bottom: .5em;
+	margin-bottom: .5em;
+	border-bottom: 1px solid #ccc;
+}
+
+a:hover {
+	text-decoration: none;
+}
+
+#homePageContainer {
+	width: 100%;
+	min-height: 100%;
+	background: url(../images/Volcano.jpg) no-repeat center center fixed;
+	background-size: cover;
+    padding-top: 2em;
+}
+
+.retweetButton {
+	border: 0px;
+	color: #428bca;
+	border-left: solid 1px #ccc;
+	border-radius: 0px;
+}
+
+.followButton {
+	border: 0px;
+	color: #428bca;
+	overflow: hidden;
+	border-right: solid 1px #ccc;
+	border-radius: 0px;
+}
+
+.unfollowButton {
+	border: 0px;
+	color: #428bca;
+	overflow: hidden;
+	border-right: solid 1px #ccc;
+	border-radius: 0px;
+}
+
+.retweetButton:hover{
+	background: none;
+}
+
+.followButton:hover{
+	background: none;
+}
+
+.unfollowButton:hover{
+	background: none;
+}
+
+.refreet {
+	float: right;
+}
+
+.unfollow {
+	width: 100px;
+	float: left;
+}
+
+.follow {
+	width: 100px;
+	float: left;
+}
+
+.form-group {
+	margin-bottom: 0px;
+}
+
+.post{
+	margin-top: 15px;
+}
+
+.noBorder {
+	border: none;
+}
+
+#homeLink {
+	border-right: solid 1px #ccc;
+	border-left: solid 1px #ccc;
+	border-radius: 0px;
+}
+
+
+

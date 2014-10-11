@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Fritter</title>
+    <link rel="stylesheet" type="text/css" href="/bootstrap/css/bootstrap.min.css">
+    <link rel='stylesheet' href='/stylesheets/index.css' />
+    <script type="text/javascript" src="/jquery/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/javascripts/signin.js"></script>
+  </head>
+  <body>
+    <h1><a href="/">Fritter</a></h1>
+    <div id="pageContainer">
+        <div id="formContainer">
+            <form role="form" method="post" action="/signin" id="signin">
+                <div class="form-group" id="usernameInput">
+                    <label for="username">Username</label>
+                    <input type="text" class="form-control" name="username" id="username">
+                </div>
+                <div class="form-group" id="passwordInput">
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control" name="password" id="password">
+                </div>
+                <button type="submit" class="btn btn-default">Sign In</button>
+            </form>
+        </div>
+        <div id="registerContainer">
+            <p style="font-weight: bold;">New To Fritter?</p>
+            <a href="/register"><button type="submit" class="btn btn-default">Create Account</button></a>
+        </div>
+    </div>
+
+    
+  </body>
+</html>

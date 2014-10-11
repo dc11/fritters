@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Fritter</title>
+    <link rel="stylesheet" type="text/css" href="/bootstrap/css/bootstrap.min.css">
+    <link rel='stylesheet' href='/stylesheets/register.css' />
+    <script type="text/javascript" src="/jquery/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/javascripts/register.js"></script>
+  </head>
+  <body>
+    <h1><a href="/">Fritter</a></h1>
+    <div id="pageContainer">
+        <div id="registerPage">
+            <form role="form" method="post" action="/adduser" id="register">
+                <div class="form-group" id="usernameForm">
+                    <label for="username">Username</label>
+                    <input type="text" class="form-control" name="username" id="username">
+                </div>
+                <div class="form-group" id="passwordForm">
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control" name="password" id="password">
+                </div>
+                <div class="form-group" id="reenterForm">
+                    <label for="password">Re-enter Password</label>
+                    <input type="password" class="form-control" name="reenter" id="reenter">
+                </div>
+                <button type="submit" class="btn btn-default" id="registerButton">Register</button>
+            </form>
+        </div>
+    </div>
+    
+    
+  </body>
+</html>

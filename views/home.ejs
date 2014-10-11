@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Fritter</title>
+    <link rel="stylesheet" type="text/css" href="/bootstrap/css/bootstrap.min.css">
+    <link rel='stylesheet' href='/stylesheets/home.css' />
+    <script type="text/javascript" src="/jquery/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="/bootstrap/js/bootstrap.min.js"></script>
+    <!--<script type="text/javascript" src="/javascripts/edit.js"></script>
+    <script type="text/javascript" src="/javascripts/delete.js"></script>
+    <script type="text/javascript" src="/javascripts/post.js"></script>-->
+    <script type="text/javascript" src="/javascripts/follow.js"></script>
+    <script type="text/javascript" src="/javascripts/unfollow.js"></script>
+    <!--<script type="text/javascript" src="/javascripts/refreet.js"></script>-->
+    <script type="text/javascript" src="/javascripts/home.js"></script>
+  </head>
+  <body>
+    <h1><a href="/">Fritter</a> - <a href="/profile/<%= user.username %>"><%= user.username %></a><span class="glyphicon glyphicon-user" style="padding-left: 1em;"></span>
+      <div id="headerRight" style="float: right;">
+        <a href="/profile/<%= user.username %>"><button type="submit" class="btn btn-default noBorder" id="profileLink">Profile</button></a><a href="/home/<%= user.username %>"><button type="submit" class="btn btn-default noBorder" id="homeLink">Home</button></a></a><form action="/logout" method="post" style="float: right; margin-right: 1em;"><button type="submit" class="btn btn-default noBorder">Logout</button></form>
+      </div>
+    </h1>
+
+    <div id="homePageContainer">
+      <form role="form" action="/tweet/<%= user.username %>" method="post" id="tweetSomething">
+          <div class="form-group" id="tweetForm">
+              <textarea rows="3" class="form-control" id="freet" name="freet" placeholder="What's going on...!?"></textarea>
+          </div>
+          <button type="submit" class="btn btn-default post">Post!</button>
+      </form>
+
+      <div id="tweets">
+          <% posts.forEach( function(post) { %>
+            <div class="tweet" id="<%= post._id %>">
+                <div class="content">
+                  <span style="font-weight: bold;"><%= post.author.username %></span>: <%= post.post %>
+                </div>
+                <% if (post.author.username == user.username) { %>
+                    <form role="form" class="tweetDelete" action="/delete" method="post">
+                      <div class="form-group">
+                        <input type="hidden" name="delete" value="<%= post._id %>">
+                        <input type="hidden" name="author" value="<%=post.author.username %>">
+                        <button type="submit" class="btn btn-default" style="margin-top: .5em;">Delete<span class="glyphicon glyphicon-remove" style="padding-left: .4em;"></span></button>
+                        <button class="btn btn-default editButton" id="editButton" name="<%= post._id %>" style="margin-top: .5em;">Edit<span class="glyphicon glyphicon-pencil" style="padding-left: .4em;"></span></button>
+                      </div>
+                    </form>
+                    <form role="form" action="/edit" method="post" class="formEdit" name="<%= post._id %>">
+                      <div class="editForm" name="<%= post._id %>">
+                        <div class="form-group">
+                          <input type="hidden" name="id" value="<%= post._id %>">
+                          <input type="hidden" name="author" value="<%= post.author.username %>">
+                          <textarea rows="3" class="form-control" name="edit"><%= post.post %></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-default post">Submit</button>
+                      </div>
+                    </form>
+                <% } else if (following.indexOf(post.author._id) >= 0) { %>
+
+                <form role="form" action="/unfollow" method="post" class="unfollow">
+                  <div class="form-group">
+                    <input type="hidden" name="toUnfollow" value="<%= post.author._id %>">
+                    <input type="hidden" name="post" value="<%= post.post %>">
+                    <input type="hidden" name="postId" value="<%= post._id %>">
+                    <input type="hidden" name="user" value="<%= user.username %>">
+                    <button type="submit" class="btn btn-default unfollowButton">Unfollow</button>
+                  </div>
+                </form>
+                <% } else { %>
+                <form role="form" action="/follow" method="post" class="follow">
+                  <div class="form-group">
+                    <input type="hidden" name="toFollow" value="<%= post.author._id %>">
+                    <input type="hidden" name="post" value="<%= post.post %>">
+                    <input type="hidden" name="postId" value="<%= post._id %>">
+                    <input type="hidden" name="user" value="<%= user.username %>">
+                    <button type="submit" class="btn btn-default followButton">Follow</button>
+                  </div>
+                </form>
+                <% } %>
+                <% if (post.author.username != user.username) { %>
+                <form role="form" action="/refreet" method="post" class="refreet">
+                  <div class="form-group">
+                    <input type="hidden" name="post" value="<%= post.post %>">
+                    <input type="hidden" name="postId" value="<%= post._id %>">
+                    <input type="hidden" name="user" value="<%= user.username %>">
+                    <button type="submit" class="btn btn-default retweetButton">Refreet</button>
+                  </div>
+                </form>
+                <% } %>
+            </div>
+          <% }); %>
+      </div>
+
+    </div>
+
+
+
+  </body>
+</html>
