@@ -17,5 +17,5 @@
     "mongoose" : "3.8.17"
   },
 
-  "main": "server.js"
+  "main": "app.js"
 }
